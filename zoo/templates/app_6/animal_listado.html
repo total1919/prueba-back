@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>Listado de Animales<h1>
+        </header>
+        <main>
+            {% if animal %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>nombre</th>
+                        <th>especie</th>
+                        <th>peso</th>
+                        <th>fecha_nacimiento</th>
+                        <th>salud</th>
+                        <th>procedencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for h in animal %}
+                    <tr>
+                        <td>{{ h.nombre_animal }}</td>
+                        <td>{{ h.especie }}</td>
+                        <td>{{ h.peso }}</td>
+                        <td>{{ h.fecha_nacimiento }}</td>
+                        <td>{{ h.salud }}</td>
+                        <td>{{ h.procedencia }}</td>
+                        <td><a href="{% url 'view03' h.id %}">Eliminar Animal</a></td>
+                        <td><a href="{% url 'view04' h.id %}">Actualizar Animal</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <div><strong>Listado Vacío</strong></div>
+            {% endif %}
+        </main>
+        <footer>
+            <a href="{% url 'view001' %}">Agregar Animals</a>
+            <a href="{% url 'view00' %}">Inicio</a>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>Agrega un Tipo de Hábitat</h1>
+        </header>
+        <main>
+            <form action="" method="POST">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="submit" value="Enviar">
+            </form>
+        </main>
+        <footer>
+            <a href="{% url 'view02' %}">Listado de Hábitats</a>
+            <a href="{% url 'view00' %}">Inicio</a>
+        </footer>
+    </div>
+</body>
+</html>
